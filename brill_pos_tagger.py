@@ -6,7 +6,7 @@ from itertools import chain, groupby, islice, zip_longest
 from operator import itemgetter
 from typing import Set, Dict, List, Tuple, Iterable
 
-from termcolor import colored
+#from termcolor import colored
 
 
 def load_data(fh) -> Iterable[Tuple[Tuple[str], Tuple[str]]]:
@@ -179,9 +179,9 @@ if __name__ == "__main__":
 
         for ex in labelled_data:
             if args.color:
-                print(" ".join(f"{}@{}@".format(word, gold if gold == predicted else '/'.join([gold, colored(predicted, 'red')])) for word, gold, predicted in ex))
+                print(" ".join("{}@{}@".format(word, gold if gold == predicted else '/'.join([gold, colored(predicted, 'red')])) for word, gold, predicted in ex))
             else:
-                print(" ".join(f"{}@{}@".format(word, gold if gold == predicted else '/'.join([gold, predicted])) for word, gold, predicted in ex))
+                print(" ".join("{}@{}@".format(word, gold if gold == predicted else '/'.join([gold, predicted])) for word, gold, predicted in ex))
             print("-" * 10)
 
     print(scores)
