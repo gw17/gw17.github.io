@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>  Guillaume Wisniewski's Homepage | Weakly Supervised PoS tagging
+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Guillaume Wisniewski">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="Guillaume Wisniewski's Homepage">
+  <meta itemprop="image" content="path/to/your/picture.jpg">
+  <meta itemprop="description" content="">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" />
+
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+</head>
+
+<body>
+  <!-- Site navigation list -->
+    <nav>
+      <h1 id = "author"> <a href="" id="home"> Guillaume Wisniewski </a> </h1>
+      <ul id = "nav_list" class="list-bare">
+            <li>
+              <a class="nav_link" href="/pages/projects.html">Projects</a>
+            </li>
+            <li>
+              <a class="nav_link" href="/pages/publications.html">Publications</a>
+            </li>
+            <li>
+              <a class="nav_link" href="/pages/research.html">Research</a>
+            </li>
+            <li>
+              <a class="nav_link" href="/pages/teaching.html">Teaching</a>
+            </li>
+      </ul>
+    </nav>
+
+  <!-- Content -->
+  <div id = "container">
+  <div id = "weakly" class = "content page">
+    <h2> Weakly Supervised PoS tagging </h2>
+      <p>This page contains the source code and the resources used in our papers
+on training a PoS tagger from ambiguous labels:</p>
+<ul class="simple">
+<li>G Wisniewski, N. Pécheux, S. Gahbiche-Braham, F. Yvon, <strong>Ambiguous Learning through Cross-Lingual Transfer for POS Tagging</strong>, EMNLP, 2014</li>
+<li>G Wisniewski, N. Pécheux, E. Knyazeva, A. Allauzen, F. Yvon, <strong>Apprentissage partiellement supervisé d'un étiqueteur morpho-syntaxique par transfert cross-lingue</strong>, TALN, 2014</li>
+<li><ol class="first upperalpha" start="14">
+<li>Pécheux, G. Wisniewski and F. Yvon, <strong>Reassessing the Value of Resources for Cross-Lingual Transfer of POS Tagging Models</strong>, LRE'16</li>
+</ol>
+</li>
+</ul>
+<p>Please cite our EMNLP paper if you use the code/resources available in
+this page:</p>
+<div class="highlight"><pre><span></span><span class="nc">@InProceedings</span><span class="p">{</span><span class="nl">wisniewski-EtAl:2014:EMNLP2014</span><span class="p">,</span>
+    <span class="na">author</span>    <span class="p">=</span> <span class="s">{Wisniewski, Guillaume  and  P\&#39;{e}cheux, Nicolas  and  Gahbiche-Braham, Souhir  and  Yvon, Fran\c{c}ois}</span><span class="p">,</span>
+    <span class="na">title</span>     <span class="p">=</span> <span class="s">{Cross-Lingual Part-of-Speech Tagging through Ambiguous Learning}</span><span class="p">,</span>
+    <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)}</span><span class="p">,</span>
+    <span class="na">month</span>     <span class="p">=</span> <span class="s">{October}</span><span class="p">,</span>
+    <span class="na">year</span>      <span class="p">=</span> <span class="s">{2014}</span><span class="p">,</span>
+    <span class="na">address</span>   <span class="p">=</span> <span class="s">{Doha, Qatar}</span><span class="p">,</span>
+    <span class="na">publisher</span> <span class="p">=</span> <span class="s">{Association for Computational Linguistics}</span><span class="p">,</span>
+    <span class="na">pages</span>     <span class="p">=</span> <span class="s">{1779--1785}</span><span class="p">,</span>
+    <span class="na">url</span>       <span class="p">=</span> <span class="s">{http://www.aclweb.org/anthology/D14-1187}</span>
+<span class="p">}</span>
+</pre></div>
+<div class="section" id="type-constraints">
+<h2>Type Constraints</h2>
+<p>The <a class="reference external" href="download/wiktionary2types.py">following program</a> can be used
+to extract the type constraints from <a class="reference external" href="http://dumps.wikimedia.org/backup-index.html">Wiktionary dumps</a> (look for the
+<cite>[lang]wiktionary</cite> links, where <cite>[lang]</cite> is the ISO 639 code for the
+language). Before using it, you will have to install the following
+dependencies:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/regex">regex</a></li>
+<li><a class="reference external" href="http://docs.python-requests.org/en/latest/">requests</a></li>
+</ul>
+<p>Note that the program has been improved since our experiments for the
+EMNLP paper and the extracted dictionaries may be slightly
+different. For the sake of reproducibility, here are the constraints
+used in our EMNLP paper:</p>
+<ul class="simple">
+<li>for Arabic     <a class="reference external" href="ar_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for Czech      <a class="reference external" href="cs_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for German     <a class="reference external" href="de_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for Greek      <a class="reference external" href="el_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for Spanish    <a class="reference external" href="es_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for Finish     <a class="reference external" href="fi_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for French     <a class="reference external" href="fr_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for Indonesian <a class="reference external" href="id_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for Italian    <a class="reference external" href="it_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+<li>for Swedish    <a class="reference external" href="sv_wiktionary_constraints.txt.bz2">txt.bz2</a></li>
+</ul>
+</div>
+<div class="section" id="ambiguous-pos-tagger">
+<h2>Ambiguous PoS Tagger</h2>
+<p>The code for the ambiguous PoS tagger is available in the <a class="reference external" href="download/weakly.tar.bz2">following archive</a>.</p>
+<p>Once the archive has been decompressed, it is possible to project the
+tags through alignment links with the following code:</p>
+<div class="highlight"><pre><span></span>lang = &quot;fr&quot;
+
+# All these files are generated during data preparation
+FREQUENT_SUFFIXES = &quot;{}_frequent_suffixes.pickle&quot;.format(lang)
+FREQUENT_WORDS = &quot;{}_frequent_words.pickle&quot;.format(lang)
+AL_CONSTRAINTS = &quot;{}_al_constraints.json&quot;.format(lang)
+WEAKLY_TRAIN = &quot;{}_projected.pickle&quot;.format(lang)
+
+# Extract information about frequent words and suffixes
+create_feature_template(CORPUS, FREQUENT_WORDS, FREQUENT_SUFFIXES)
+
+# Extract alignment constraints
+extract_alignment_constraints(CORPUS, AL_CONSTRAINTS, -1)
+
+# Label training set. The resulting dataset will be in WEAKLY_TRAIN
+project_labels(WEAKLY_TRAIN, CORPUS, False, WIKI_CONSTRAINTS,
+               AL_CONSTRAINTS, PRIORITY_CONSTRAINTS, &quot;intersection&quot;)
+</pre></div>
+<p>running this script requires the following files:</p>
+<ul>
+<li><p class="first"><strong>CORPUS</strong> this file contains the corpus with all information
+required to transfer the PoS information. The file is a pickle file
+in which examples are pickled one after the other. Each example is
+a dictionary with the following keys:</p>
+<blockquote>
+<ul class="simple">
+<li><em>src</em> the tokenized source sentence</li>
+<li><em>tgt</em> the tokenized target sentence</li>
+<li><em>al</em> the alignment between the source and the target (a dictionary that maps a source index to a target index)</li>
+<li><em>src_pos</em> a list describing the PoS tags of each source sentence (if not available, the source sentence)</li>
+<li><em>tgt_pos</em> a list describing the PoS tags of the target sentence (if not available, the target sentence)</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><strong>WIKI_CONSTRAINTS</strong> Wiktionary constraints are in the format used
+in [Li et al, 2012] paper (each line contains a word and one PoS tag
+it can have separated by a tabulation); the same word can appear on
+several lines.</p>
+</li>
+<li><p class="first"><strong>PRIORITY_CONSTRAINTS</strong> Priority constraints are hand-made
+constraints that can be used, for instance, to account for
+differences in conventions, punctuation normalization or to correct
+‘error’ in extraction from Wiktionary. Priority constraints are
+stored in a json file that describe a mapping between a regexp and
+a list of tags</p>
+</li>
+</ul>
+<p>The following code can then be used to run a ‘simple’ weakly PoS tagger:</p>
+<div class="highlight"><pre><span></span>lang = &quot;fr&quot;
+train_set = &quot;fr_projected.pickle&quot;
+output = &quot;fr_weakly_mode.pickle&quot;
+train_weakly_tagger(lang, train_set, &quot;constraints_features&quot;, output)
+</pre></div>
+</div>
+
+  </div>
+
+  <!-- Footer -->
+    <footer>
+      <p>
+        Powered by <a href="http://getpelican.com/">Pelican</a>,
+        which takes great advantage of <a href="http://python.org">Python</a>.<br>
+        Theme <a href="https://github.com/wjhopper/academia">academia</a> by <a href="https://github.com/wjhopper">Will Hopper</a>.
+        Styled with the help of <a href="http://getskeleton.com/">Skeleton</a>
+      </p>
+    </footer>
+  </div>
+
+
+</body>
+</html>
